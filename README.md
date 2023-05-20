@@ -5,6 +5,12 @@ This README provides an overview and explanation of the code snippet you provide
 
 Before running the code, make sure you have the following installed:
 
+**Dependencies:**
+
+ Mongodb
+ Node.js
+ express.js
+
 **MongoDB:** 
 
 A NoSQL database system
