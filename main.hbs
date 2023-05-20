@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            background-image: url('https://www.deccanherald.com/sites/dh/files/styles/article_detail/public/article_images/2015/11/03/509838.jpg?itok=lY8RcC54');
+            background-repeat:no-repeat;
+            background-position: center;
+            background-size: cover;
+            color:white ;
+            text-align: center;
+
+        }
+    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+</head>
+<body>
+    
+    <h1>Library Management System</h1>
+    {{message}}
+    <br>
+    {{#if edit_id}}
+     <h3>Edit</h3>
+    <form method="post" action="/update_book/{{edit_id}}">
+        <label for="">Title</label>
+        <input type="text" name="title" value="{{edit_book.title}}">
+        <br><br>
+        <label for="">Author</label>
+        <input type="text" name="author" value="{{edit_book.author}}">
+        <br> <br>
+        <label for="">Year of Publications:</label>
+        <input type="number" name="yop" value="{{edit_book.yop}}">
+        <br> <br>
+        <label for="">No of pages:</label>
+        <input type="number" name="Nop" value="{{edit_book.Nop}}">
+        <br> <br>
+        <input type="submit" >
+
+    </form><br><br>
+    {{else}}
+
+    <h3>Create</h3>
+    <form method="post" action="/store_book">
+        <label for="">Title</label>
+        <input type="text" name="title">
+        <br><br>
+        <label for="">Author</label>
+        <input type="text" name="author">
+        <br><br>
+        <label for="">Year of Publications:</label>
+        <input type="number" name="Yop">
+        <br><br>
+        <label for="">No of pages:</label>
+        <input type="number" name="Nop">
+        <br><br>
+        <input type="submit" >
+    </form><br><br>
+
+   {{/if}}
+
+    <ul style="color: rgb(21, 255, 0)">
+        {{#each books}}
+        <li> <b>{{this.title}} - {{this.author}} -{{this.yop}} -{{this.Nop}} <a href="/?edit_id={{this._id}}"><button>Edit</button></a>  <a href="/?delete_id={{this._id}}" onclick="return confirm('Are you sure want to delete?')" ><button>Delete</button></a></b></li>
+        {{/each}}
+    </ul>
+
+</body>
+</html>
